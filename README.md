@@ -1,7 +1,7 @@
-Role Name
+Fedora Workstation
 =========
 
-A brief description of the role goes here.
+This role installs my personal workstation setup.
 
 Requirements
 ------------
