@@ -1,2 +1,107 @@
 ---
 # vars file for skeleton-role
+
+
+fedora_workstation_x11:
+  - glx-utils
+  - mesa-dri-drivers
+  - mesa-vulkan-drivers
+  - plymouth-system-theme
+  - xorg-x11-drv-evdev
+  - xorg-x11-drv-fbdev
+  - xorg-x11-drv-intel
+  - xorg-x11-drv-libinput
+  - xorg-x11-drv-vesa
+  - xorg-x11-server-Xorg
+  - xorg-x11-server-utils
+  - xorg-x11-utils
+  - xorg-x11-xauth
+  - xorg-x11-xinit
+  - xbacklight
+  - xcompmgr
+  - xrandr
+  - arandr
+  - xsel
+  - xclip 
+  - xkill
+  - xautolock
+  - x11-ssh-askpass
+
+fedora_workstations_i3_repos:
+  - nforro/i3-gaps
+  - thofmann/rofi 
+
+fedora_workstation_i3:
+  - i3-gaps
+  - rofi
+  - i3lock
+  - feh
+
+fedora_workstation_desktop:
+  - lxappearance
+  - adwaita-gtk2-theme
+  - adwaita-icon-theme 
+  - numix-gtk-theme
+  - numix-icon-theme-square
+  - lightdm
+  - lightdm-gtk
+  - dzen2
+  - libappindicator
+  - notification-daemon
+  
+fedora_workstation_utilities:
+  - udiskie
+  - upower
+  - xdg-utils
+  - lm_sensors
+  - xsensors
+  - dbus-x11
+  - gnome-logs
+  - bash-completion
+  - gnome-disk-utility
+  - NetworkManager-tui
+  - NetworkManager-wifi
+  - net-tools
+  - bind-utils
+  - git
+  - vim
+  - whois
+  - traceroute
+  - unzip
+  - mlocate
+  - eog
+  - tree
+
+fedora_workstation_codecs:
+  - gstreamer1 
+  - gstreamer1-plugins-bad-free 
+  - gstreamer1-plugins-bad-free-gtk 
+  - gstreamer1-plugins-base 
+  - gstreamer1-plugins-good
+
+fedora_workstation_software:
+   - firefox
+   - thunderbird 
+
+fedora_workstation_fonts:
+  - fontconfig 
+  - dejavu-sans-fonts 
+  - dejavu-sans-mono-fonts 
+  - dejavu-serif-fonts 
+  - liberation-mono-fonts 
+  - liberation-sans-fonts 
+  - liberation-serif-fonts
+  - adobe-source-han-sans-cn-fonts 
+  - adobe-source-han-serif-cn-fonts 
+  - google-noto-sans-thai-fonts 
+  - google-noto-serif-thai-fonts 
+  - un-core-batang-fonts
+
+fedora_workstation_sound:
+  - pulseaudio
+  - pulseaudio-libs
+  - pulseaudio-utils
+  - alsa-plugins-pulseaudio
+  - alsa-utils 
+  - pavucontrol
+  - volumeicon
