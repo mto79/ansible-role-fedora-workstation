@@ -6,7 +6,8 @@ This role installs my personal workstation setup.
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. 
+
 
 Role Variables
 --------------
@@ -25,7 +26,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: mto79.fedora-workstation }
 
 License
 -------
