@@ -1,8 +1,6 @@
 ---
-# vars file for skeleton-role
 
-
-fedora_workstation_x11:
+fedora_workstation_pkg_x11:
   - glx-utils
   - mesa-dri-drivers
   - mesa-vulkan-drivers
@@ -27,17 +25,7 @@ fedora_workstation_x11:
   - xautolock
   - x11-ssh-askpass
 
-fedora_workstations_i3_repos:
-  - nforro/i3-gaps
-  - thofmann/rofi 
-
-fedora_workstation_i3:
-  - i3-gaps
-  - rofi
-  - i3lock
-  - feh
-
-fedora_workstation_desktop:
+fedora_workstation_pkg_desktop:
   - lxappearance
   - adwaita-gtk2-theme
   - adwaita-icon-theme 
@@ -49,7 +37,9 @@ fedora_workstation_desktop:
   - libappindicator
   - notification-daemon
   
-fedora_workstation_utilities:
+fedora_workstation_pkg_utilities:
+  #- usbutils
+  
   - udiskie
   - upower
   - xdg-utils
@@ -72,18 +62,18 @@ fedora_workstation_utilities:
   - eog
   - tree
 
-fedora_workstation_codecs:
+fedora_workstation_pkg_codecs:
   - gstreamer1 
   - gstreamer1-plugins-bad-free 
   - gstreamer1-plugins-bad-free-gtk 
   - gstreamer1-plugins-base 
   - gstreamer1-plugins-good
 
-fedora_workstation_software:
+fedora_workstation_pkg_software:
    - firefox
    - thunderbird 
 
-fedora_workstation_fonts:
+fedora_workstation_pkg_fonts:
   - fontconfig 
   - dejavu-sans-fonts 
   - dejavu-sans-mono-fonts 
@@ -97,7 +87,7 @@ fedora_workstation_fonts:
   - google-noto-serif-thai-fonts 
   - un-core-batang-fonts
 
-fedora_workstation_sound:
+fedora_workstation_pkg_sound:
   - pulseaudio
   - pulseaudio-libs
   - pulseaudio-utils
@@ -105,3 +95,13 @@ fedora_workstation_sound:
   - alsa-utils 
   - pavucontrol
   - volumeicon
+
+fedora_workstation_i3_repos:
+  - nforro/i3-gaps
+  - thofmann/rofi 
+
+fedora_workstation_i3:
+  - i3-gaps
+  - rofi
+  - i3lock
+  - feh

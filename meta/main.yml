@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: ansible-role-fedora-workstation 
+  role_name: ansible_role_fedora_workstation 
   author: MTO
   description: Minimal Fedora workstation with i3 as window manager. 
   license: "license (BSD, MIT)"
