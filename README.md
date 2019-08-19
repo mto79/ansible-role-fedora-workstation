@@ -1,4 +1,4 @@
-Fedora Workstation
+Workstation
 =========
 
 This role installs my personal workstation setup.
@@ -26,7 +26,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: mto79.fedora-workstation }
+         - { role: mto79.workstation }
 
 License
 -------
