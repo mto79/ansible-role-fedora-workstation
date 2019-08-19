@@ -1,7 +1,7 @@
 galaxy_info:
-  role_name: ansible_role_workstation 
+  role_name: ansible_role_workstation
   author: MTO
-  description: Minimal workstation 
+  description: Minimal workstation
   license: "license (BSD, MIT)"
   min_ansible_version: 2.4
 
@@ -26,9 +26,8 @@ galaxy_info:
     - name: EL
       versions:
         - 8
-  
 
-  galaxy_tags: 
+  galaxy_tags:
     - rhel8
     - workstation
     - minimal
