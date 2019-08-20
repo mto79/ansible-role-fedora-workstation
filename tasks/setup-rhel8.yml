@@ -40,6 +40,7 @@
   yum:
     name:
       - gnome-terminal
+      - gnome-tweak-tool
       - bash-completion
       - firefox
       - thunderbird
@@ -47,7 +48,6 @@
       - bind-utils
       - git
       - vim
-      - whois
       - traceroute
       - unzip
       - mlocate
