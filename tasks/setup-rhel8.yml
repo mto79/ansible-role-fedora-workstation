@@ -1,5 +1,8 @@
 ---
-
+# ansible_role_workstation/tasks/setup-rhel8.yml
+# Author: MTO 
+# Description: Task for installing default GUI and programs on RedHat 8 or Centos 8.
+#
 - name: Display from rhel8-setup
   debug: msg="Setup system {{ inventory_hostname }}"
 
@@ -27,13 +30,18 @@
 
 - name: Is graphical currently active
   command: systemctl is-active graphical.target
-  register: graphical
   ignore_errors: true
-
+  register: graphical
+  
 - name: Switch to graphical runlevel
   command: systemctl isolate graphical.target
   when: graphical.stdout != "active"
   ignore_errors: true   
+
+- name: Disable Wayland
+  path: /etc/gdm/custom.conf
+  regexp: '^#WaylandEnable='
+  line: WaylandEnable=false
 
 - name: Install default software
   yum:
@@ -45,10 +53,10 @@
       - gnome-terminal
       - gnome-tweak-tool
       - bash-completion
-      - firefox
-      - thunderbird
       - net-tools
       - bind-utils
+      - dnf-utils
+      - sos
       - git
       - vim
       - traceroute
@@ -56,6 +64,8 @@
       - mlocate
       - eog
       - tree
+      - evince
+      - screen
     state: present     
 
 - name: Install fonts

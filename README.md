@@ -6,7 +6,7 @@ This role installs my personal workstation setup.
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. 
+Make sure the EPEL Repo is enable. See (mto79/ansible_role_epel_role)[https://github.com/mto79/ansible_role_repo_epel] 
 
 
 Role Variables

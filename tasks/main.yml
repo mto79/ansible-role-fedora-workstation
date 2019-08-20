@@ -1,8 +1,11 @@
 ---
-
+# ansible_role_workstation/tasks/main.yml
+# Author: MTO 
+# Description: Main task for installing default GUI and programs on RedHat 8 or Centos 8.
+#
 # Display os and distribution
 
-- name: Display system details
+- name: Display system, os, version and release 
   debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
  
 - include_tasks: setup-rhel8.yml
