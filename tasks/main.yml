@@ -3,8 +3,7 @@
 # Display os and distribution
 
 - name: Display system details
-  debug: msg="System {{ inventory_hostname }} has OS {{ ansible_distribution }}, VERSION {{ ansible_distribution_version }}, RELEASE {{ ansible_distribution_release }}"
+  debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
  
-
 - include_tasks: setup-rhel8.yml
   when: ansible_distribution == 'RedHat' and ansible_distribution_version == '8.0'
