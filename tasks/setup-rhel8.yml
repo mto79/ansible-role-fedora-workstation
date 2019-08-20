@@ -32,7 +32,7 @@
   
 - name: Switch to graphical runlevel
   command: systemctl isolate graphical.target
-  ignore_errors: yes
+  ignore_errors: true
   when: graphical.stdout != "active"
    
 
