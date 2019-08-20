@@ -29,13 +29,12 @@
 - name: Is graphical currently active
   command: systemctl is-active graphical.target
   register: graphical
-  
+  ignore_errors: true
+
 - name: Switch to graphical runlevel
   command: systemctl isolate graphical.target
-  ignore_errors: true
   when: graphical.stdout != "active"
-   
-
+     
 - name: Install default software
   yum:
     name:
