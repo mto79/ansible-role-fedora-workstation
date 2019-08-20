@@ -65,9 +65,9 @@
       - liberation-mono-fonts 
       - liberation-sans-fonts 
       - liberation-serif-fonts
-      - adobe-source-han-sans-cn-fonts 
-      - adobe-source-han-serif-cn-fonts 
-      - google-noto-sans-thai-fonts 
-      - google-noto-serif-thai-fonts 
-      - un-core-batang-fonts
+      #- adobe-source-han-sans-cn-fonts 
+      #- adobe-source-han-serif-cn-fonts 
+      #- google-noto-sans-thai-fonts 
+      #- google-noto-serif-thai-fonts 
+      #- un-core-batang-fonts
     state: present     
