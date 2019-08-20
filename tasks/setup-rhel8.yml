@@ -39,6 +39,10 @@
 - name: Install default software
   yum:
     name:
+      - spice-vdagent
+      - spice-server
+      - spice-glib
+      - spice-gtk3
       - gnome-terminal
       - gnome-tweak-tool
       - bash-completion
