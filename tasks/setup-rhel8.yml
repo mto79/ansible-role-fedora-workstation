@@ -34,7 +34,8 @@
 - name: Switch to graphical runlevel
   command: systemctl isolate graphical.target
   when: graphical.stdout != "active"
-     
+  ignore_errors: true   
+
 - name: Install default software
   yum:
     name:
