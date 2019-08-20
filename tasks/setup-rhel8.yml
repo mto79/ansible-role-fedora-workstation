@@ -11,7 +11,7 @@
 - name: Install Gnome Minimal
   yum:
     name:
-      - "@basex"  
+      - "@base-x" 
       - gnome-shell
       - gnome-terminal
       - dejavu-sans-mono-fonts
@@ -34,3 +34,38 @@
   command: systemctl isolate graphical.target
   when: graphical.stdout != "active"
  
+- name: Install default software
+  yum:
+    name:
+      - gnome-terminal
+      - bash-completion
+      - firefox
+      - thunderbird
+      - net-tools
+      - bind-utils
+      - git
+      - vim
+      - whois
+      - traceroute
+      - unzip
+      - mlocate
+      - eog
+      - tree
+    state: present     
+
+- name: Install fonts
+  yum:
+    name:
+      - fontconfig 
+      - dejavu-sans-fonts 
+      - dejavu-sans-mono-fonts 
+      - dejavu-serif-fonts 
+      - liberation-mono-fonts 
+      - liberation-sans-fonts 
+      - liberation-serif-fonts
+      - adobe-source-han-sans-cn-fonts 
+      - adobe-source-han-serif-cn-fonts 
+      - google-noto-sans-thai-fonts 
+      - google-noto-serif-thai-fonts 
+      - un-core-batang-fonts
+    state: present     
