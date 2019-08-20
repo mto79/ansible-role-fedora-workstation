@@ -1,5 +1,9 @@
 ---
 
+workstation_gnome_minimal:
+ 
+
+
 fedora_workstation_pkg_x11:
   - glx-utils
   - mesa-dri-drivers
