@@ -39,9 +39,10 @@
   ignore_errors: true   
 
 - name: Disable Wayland
-  path: /etc/gdm/custom.conf
-  regexp: '^#WaylandEnable='
-  line: WaylandEnable=false
+  lineinfile:
+    path: /etc/gdm/custom.conf
+    regexp: '^#WaylandEnable='
+    line: WaylandEnable=false
 
 - name: Install default software
   yum:
