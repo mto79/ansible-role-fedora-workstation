@@ -85,3 +85,6 @@
       #- google-noto-serif-thai-fonts 
       #- un-core-batang-fonts
     state: present     
+
+- name: Unconditionally reboot
+  reboot:
