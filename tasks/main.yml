@@ -3,10 +3,14 @@
 # Author: MTO 
 # Description: Main task for installing default GUI and programs on RedHat 8 or Centos 8.
 #
-# Display os and distribution
 
+# Display os and distribution
 - name: Display system, os, version and release 
   debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
  
-- include_tasks: setup-rhel8.yml
+- include_tasks: rhel8.yml
   when: ansible_distribution == 'RedHat' and ansible_distribution_version == '8.0'
+ 
+- include_tasks: fedora.yml
+  when: ansible_distribution == 'Fedora' and ansible_distribution_version == '30'
+  

@@ -1,56 +1,52 @@
 ---
-# ansible_role_workstation/tasks/setup-rhel8.yml
+# ansible_role_workstation/tasks/fedora.yml
 # Author: MTO 
-# Description: Task for installing default GUI and programs on RedHat 8 or Centos 8.
+# Description: Task for installing default GUI and programs on Fedora
 #
-- name: Display from rhel8-setup
-  debug: msg="Setup system {{ inventory_hostname }}"
-
-- name: Upgrade all packages
-  yum:
+- name: Upgrade all packages (Fedora)
+  dnf:
     name: '*'
     state: latest
-
-- name: Install Gnome Minimal
-  yum:
+   
+- name: Install Gnome Minimal (Fedora)
+  dnf:
     name:
       - gnome-shell
       - gnome-terminal
       - dejavu-sans-mono-fonts
       - bash-completion
     state: present    
-
-- name: Get default runlevel
+   
+- name: Get default runlevel (Fedora)
   command: systemctl get-default
   register: runlevel
-
-- name: Set graphical runlevel
+   
+- name: Set graphical runlevel (Fedora)
   command: systemctl set-default graphical.target
   when: runlevel.stdout != "graphical.target"
-
-- name: Is graphical currently active
+  
+- name: Is graphical currently active (Fedora)
   command: systemctl is-active graphical.target
   ignore_errors: true
   register: graphical
   
-- name: Switch to graphical runlevel
+- name: Switch to graphical runlevel (Fedora)
   command: systemctl isolate graphical.target
   when: graphical.stdout != "active"
   ignore_errors: true   
-
-- name: Disable Wayland
-  lineinfile:
-    path: /etc/gdm/custom.conf
-    regexp: '^#WaylandEnable='
-    line: WaylandEnable=false
-
-- name: Install default software
-  yum:
+  
+- name: Install agent software (Fedora)
+  dnf:
     name:
       - spice-vdagent
       - spice-server
       - spice-glib
-      - spice-gtk3
+      - spice-gtk3 
+    state: present 
+   
+- name: Install default software (Fedora)
+  dnf:
+    name:
       - gnome-terminal
       - gnome-tweak-tool
       - bash-completion
@@ -68,9 +64,9 @@
       - evince
       - screen
     state: present     
-
-- name: Install fonts
-  yum:
+    
+- name: Install fonts (Fedora)
+  dnf:
     name:
       - fontconfig 
       - dejavu-sans-fonts 
@@ -85,6 +81,23 @@
       #- google-noto-serif-thai-fonts 
       #- un-core-batang-fonts
     state: present     
+     
+- name: Disable Wayland (Fedora)
+  lineinfile:
+    path: /etc/gdm/custom.conf
+    regexp: '^#WaylandEnable='
+    line: WaylandEnable=false
+    state: present
+   
+- name: Limit the number of kernels (Fedora)
+  lineinfile:
+    path: /etc/dnf.conf
+    regexp: '^installonly_limit'
+    line: installonly_limit=1
+    state: present
+  
+- name: Remove old kernels from the OS keeping only the most recent (Fedora)
+  command: dnf remove $(dnf repoquery --installonly --latest-limit=-1 -q) -y
 
-- name: Unconditionally reboot
+- name: Unconditionally reboot (Fedora)
   reboot:

@@ -1,0 +1,106 @@
+---
+# ansible_role_workstation/tasks/rhel8.yml
+# Author: MTO 
+# Description: Task for installing default GUI and programs on RedHat 8 or Centos 8.
+# Requirement EPEL repo must be installed
+#
+- name: Upgrade all packages (RedHat 8)
+  yum:
+    name: '*'
+    state: latest
+  
+- name: Install Gnome Minimal (RedHat 8)
+  yum:
+    name:
+      - gnome-shell
+      - gnome-terminal
+      - dejavu-sans-mono-fonts
+      - bash-completion
+    state: present    
+  
+- name: Get default runlevel (RedHat 8)
+  command: systemctl get-default
+  register: runlevel
+  
+- name: Set graphical runlevel (RedHat 8)
+  command: systemctl set-default graphical.target
+  when: runlevel.stdout != "graphical.target"
+  
+- name: Is graphical currently active (RedHat 8)
+  command: systemctl is-active graphical.target
+  ignore_errors: true
+  register: graphical
+  
+- name: Switch to graphical runlevel (RedHat 8)
+  command: systemctl isolate graphical.target
+  when: graphical.stdout != "active"
+  ignore_errors: true   
+  
+- name: Install agent software (RedHat 8)
+  yum:
+    name:
+      - spice-vdagent
+      - spice-server
+      - spice-glib
+      - spice-gtk3 
+    state: present 
+
+- name: Install default software (RedHat 8)
+  yum:
+    name:
+      - gnome-terminal
+      - gnome-tweak-tool
+      - bash-completion
+      - net-tools
+      - bind-utils
+      - dnf-utils
+      - sos
+      - git
+      - vim
+      - traceroute
+      - unzip
+      - mlocate
+      - eog
+      - tree
+      - evince
+      - screen
+    state: present     
+   
+- name: Install fonts (RedHat 8)
+  yum:
+    name:
+      - fontconfig 
+      - dejavu-sans-fonts 
+      - dejavu-sans-mono-fonts 
+      - dejavu-serif-fonts 
+      - liberation-mono-fonts 
+      - liberation-sans-fonts 
+      - liberation-serif-fonts
+      #- adobe-source-han-sans-cn-fonts 
+      #- adobe-source-han-serif-cn-fonts 
+      #- google-noto-sans-thai-fonts 
+      #- google-noto-serif-thai-fonts 
+      #- un-core-batang-fonts
+    state: present     
+    
+- name: Disable Wayland (RedHat 8)
+  lineinfile:
+    path: /etc/gdm/custom.conf
+    regexp: '^#WaylandEnable='
+    line: WaylandEnable=false
+    state: present
+  
+- name: Limit the number of kernels (RedHat 8)
+  lineinfile:
+    path: /etc/yum.conf
+    regexp: '^installonly_limit'
+    line: installonly_limit=1
+    state: present
+  
+- name: Remove old kernels from the OS keeping only the most recent (RedHat 8)
+  command: /usr/bin/package-cleanup --oldkernels --count=1 -y
+
+- name: Unconditionally reboot (RedHat 8)
+  reboot:
+  
+
