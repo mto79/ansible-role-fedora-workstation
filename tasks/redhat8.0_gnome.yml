@@ -34,10 +34,10 @@
     line: WaylandEnable=false
     state: present
 
-#- name: Gnome - Enable Night Light
-#  dconf:
-#    key: /org/gnome/settings-daemon/plugins/color/night-light-enabled
-#    value: true
+- name: Gnome - Enable Night Light
+  dconf:
+    key: /org/gnome/settings-daemon/plugins/color/night-light-enabled
+    value: true
 
 #- name: Gnome - Custom keybindings - Custom 0 Name
 #  dconf:
