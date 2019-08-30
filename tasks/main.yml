@@ -8,13 +8,13 @@
 - name: Display system, os, version and release 
   debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
  
-- import_tasks: "{{ ansible_os_family | lower }}/system.yml"
+- include_tasks: "{{ ansible_os_family | lower }}/system.yml"
  
-- import_tasks: "{{ ansible_os_family | lower }}/software.yml"
+- include_tasks: "{{ ansible_os_family | lower }}/software.yml"
 
-- import_tasks: "{{ ansible_os_family | lower }}/fonts.yml"
+- include_tasks: "{{ ansible_os_family | lower }}/fonts.yml"
 
-- import_tasks: "{{ ansible_os_family | lower }}/gnome.yml"
+- include_tasks: "{{ ansible_os_family | lower }}/gnome.yml"
 
 - name: Unconditionally reboot (RedHat 8)
   reboot:
