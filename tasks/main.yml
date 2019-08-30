@@ -8,6 +8,8 @@
 - name: Display system, os, version and release 
   debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
  
+
+
 - import_tasks: rhel8/setup.yml
   when: ansible_distribution == 'RedHat' and ansible_distribution_version == '8.0'
  
