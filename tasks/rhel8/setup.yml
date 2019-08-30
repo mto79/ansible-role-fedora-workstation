@@ -9,11 +9,11 @@
     name: '*'
     state: latest
   
-- import_tasks: rhel8/sofware.yml
+- import_tasks: sofware.yml
 
-- import_tasks: rhel8/fonts.yml
+- import_tasks: fonts.yml
 
-- import_tasks: rhel8/gnome.yml
+- import_tasks: gnome.yml
   
 - name: Limit the number of kernels (RedHat 8)
   lineinfile:
