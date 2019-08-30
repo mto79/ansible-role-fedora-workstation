@@ -36,9 +36,10 @@
 
 - name: Gnome - Enable Night Light
   dconf:
-    key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled/"
+    key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
     value: "true"
-
+    state: present
+    
 #- name: Gnome - Custom keybindings - Custom 0 Name
 #  dconf:
 #    key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name
