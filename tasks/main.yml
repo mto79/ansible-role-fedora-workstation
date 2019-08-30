@@ -6,19 +6,15 @@
 
 # Display os and distribution
 - name: Display system, os, version and release 
-  debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} {{ ansible_os_family }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
+  debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
  
-- import_tasks: rhel8/system.yml
-  when: ansible_distribution == 'RedHat' and ansible_distribution_version == '8.0'
+- import_tasks: "{{ ansible_os_family | lower }}/system.yml"
+ 
+- import_tasks: "{{ ansible_os_family | lower }}/software.yml"
 
-- import_tasks: rhel8/software.yml
-  when: ansible_distribution == 'RedHat' and ansible_distribution_version == '8.0'
+- import_tasks: "{{ ansible_os_family | lower }}/fonts.yml"
 
-- import_tasks: rhel8/fonts.yml
-  when: ansible_distribution == 'RedHat' and ansible_distribution_version == '8.0'
-
-- import_tasks: rhel8/gnome.yml
-  when: ansible_distribution == 'RedHat' and ansible_distribution_version == '8.0'
+- import_tasks: "{{ ansible_os_family | lower }}/gnome.yml"
 
 - name: Unconditionally reboot (RedHat 8)
   reboot:

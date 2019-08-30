@@ -34,31 +34,31 @@
     line: WaylandEnable=false
     state: present
 
-- name: Gnome - Enable Night Light
-  dconf:
-    key: /org/gnome/settings-daemon/plugins/color/night-light-enabled
-    value: true
+#- name: Gnome - Enable Night Light
+#  dconf:
+#    key: /org/gnome/settings-daemon/plugins/color/night-light-enabled
+#    value: true
 
-- name: Gnome - Custom keybindings - Custom 0 Name
-  dconf:
-    key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name
-    value: "'Launch Terminal'"
-    state: present 
+#- name: Gnome - Custom keybindings - Custom 0 Name
+#  dconf:
+#    key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name
+#    value: "'Launch Terminal'"
+#    state: present 
 
-- name: Gnome - Custom keybindings - Custom 0 Binding
-  dconf:
-    key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding
-    value: "'gnome-terminal'"
-    state: present 
+#- name: Gnome - Custom keybindings - Custom 0 Binding
+#  dconf:
+#    key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding
+#    value: "'gnome-terminal'"
+#    state: present 
 
-- name: Gnome - Custom keybindings - Custom 0 Command
-  dconf:
-    key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command
-    value: "'<Primary><Alt>t'"
-    state: present
+#- name: Gnome - Custom keybindings - Custom 0 Command
+#  dconf:
+#    key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command
+#    value: "'<Primary><Alt>t'"
+#    state: present
 
-- name: Gnome - Enable Custom keybindings
-  dconf:
-    key: "/org/gnome/desktop/input-sources/sources"
-    value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
-    state: present
+#- name: Gnome - Enable Custom keybindings
+#  dconf:
+#    key: "/org/gnome/desktop/input-sources/sources"
+#    value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+#    state: present

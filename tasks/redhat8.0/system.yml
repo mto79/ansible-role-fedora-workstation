@@ -4,10 +4,10 @@
 # Description: Task for installing default GUI and programs on RedHat 8 or Centos 8.
 # Requirement EPEL repo must be installed
 #
-#- name: Upgrade all packages (RedHat 8)
-#  yum:
-#    name: '*'
-#    state: latest
+- name: Upgrade all packages (RedHat 8)
+  yum:
+    name: '*'
+    state: latest
   
 - name: Limit the number of kernels (RedHat 8)
   lineinfile:

@@ -23,7 +23,8 @@
       - bind-utils
       - dnf-utils
       - dconf-editor
-      - python3-psutil
+      - psutils
+      - python
       - sos
       - git
       - vim
