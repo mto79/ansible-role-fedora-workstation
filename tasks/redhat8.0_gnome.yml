@@ -34,17 +34,17 @@
     line: WaylandEnable=false
     state: present
 
-- name: Gnome dconf fix (1) - Copy python3-psutil-5.4.3-4.fc28.x86_64.rpm
+- name: Gnome dconf fix (1) - Copy python3-psutil-5.4.3-4.fc28.x86_64.rpm (RedHat 8)
   copy:
     src: rpm/python3-psutil-5.4.3-4.fc28.x86_64.rpm
     dest: /tmp/python3-psutil-5.4.3-4.fc28.x86_64.rpm
 
-- name: Gnome dconf fix (2) - Install python3-psutil-5.4.3-4.fc28.x86_64.rpm
+- name: Gnome dconf fix (2) - Install python3-psutil-5.4.3-4.fc28.x86_64.rpm (RedHat 8)
   yum:
     name: /tmp/python3-psutil-5.4.3-4.fc28.x86_64.rpm
     state: present
 
-- name: Gnome configure with dconf module
+- name: Gnome configure with dconf module (RedHat 8)
   dconf:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
@@ -55,28 +55,13 @@
     - key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
       value: "true"
     - key: "/org/gnome/desktop/interface/clock-format"
-      value: "24" 
+      value: "24"
+    - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
+      value: "'Launch Terminal'"   
+    - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding"
+      value: "'gnome-terminal'" 
+    - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
+      value: "'<Primary><Alt>t'"   
+    - key: "/org/gnome/desktop/input-sources/sources"
+      value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"  
 
-#- name: Gnome - Custom keybindings - Custom 0 Name
-#  dconf:
-#    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
-#    value: "'Launch Terminal'"
-#    state: present 
-
-#- name: Gnome - Custom keybindings - Custom 0 Binding
-#  dconf:
-#    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding"
-#    value: "'gnome-terminal'"
-#    state: present 
-
-#- name: Gnome - Custom keybindings - Custom 0 Command
-#  dconf:
-#    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
-#    value: "'<Primary><Alt>t'"
-#    state: present
-
-#- name: Gnome - Enable Custom keybindings
-#  dconf:
-#    key: "/org/gnome/desktop/input-sources/sources"
-#    value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
-#    state: present

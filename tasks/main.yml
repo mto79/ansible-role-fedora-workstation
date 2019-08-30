@@ -16,7 +16,7 @@
 
 - include_tasks: "{{ ansible_os_family | lower }}{{ ansible_distribution_version }}_gnome.yml"
 
-- name: Unconditionally reboot (RedHat 8)
+- name: Unconditionally reboot
   reboot:
 
 #- import_tasks: fedora/setup.yml
