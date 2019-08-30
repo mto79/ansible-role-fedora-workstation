@@ -62,6 +62,6 @@
       value: "'gnome-terminal'" 
     - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
       value: "'<Primary><Alt>t'"   
-    - key: "/org/gnome/desktop/input-sources/sources"
+    - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
       value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"  
 
