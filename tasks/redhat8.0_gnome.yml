@@ -39,22 +39,22 @@
     key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
     value: "true"
     state: present
-    
+
 #- name: Gnome - Custom keybindings - Custom 0 Name
 #  dconf:
-#    key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name
+#    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
 #    value: "'Launch Terminal'"
 #    state: present 
 
 #- name: Gnome - Custom keybindings - Custom 0 Binding
 #  dconf:
-#    key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding
+#    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding"
 #    value: "'gnome-terminal'"
 #    state: present 
 
 #- name: Gnome - Custom keybindings - Custom 0 Command
 #  dconf:
-#    key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command
+#    key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
 #    value: "'<Primary><Alt>t'"
 #    state: present
 
