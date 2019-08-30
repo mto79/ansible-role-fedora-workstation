@@ -1,0 +1,64 @@
+# ansible_role_workstation/tasks/rhel8/gnome.yml
+# Author: MTO 
+# Description: Task for installing software on RedHat 8.
+# Requirements: rhel8/software.yml has to run first 
+#
+- name: Install Gnome Minimal (RedHat 8)
+  yum:
+    name:
+      - gnome-shell
+    state: present    
+  
+- name: Get default runlevel (RedHat 8)
+  command: systemctl get-default
+  register: runlevel
+  
+- name: Set graphical runlevel (RedHat 8)
+  command: systemctl set-default graphical.target
+  when: runlevel.stdout != "graphical.target"
+  
+- name: Is graphical currently active (RedHat 8)
+  command: systemctl is-active graphical.target
+  ignore_errors: true
+  register: graphical
+  
+- name: Switch to graphical runlevel (RedHat 8)
+  command: systemctl isolate graphical.target
+  when: graphical.stdout != "active"
+  ignore_errors: true   
+      
+- name: Disable Wayland (RedHat 8)
+  lineinfile:
+    path: /etc/gdm/custom.conf
+    regexp: '^#WaylandEnable='
+    line: WaylandEnable=false
+    state: present
+
+- name: Gnome - Enable Night Light
+  dconf:
+    key: /org/gnome/settings-daemon/plugins/color/night-light-enabled
+    value: true
+
+- name: Gnome - Custom keybindings - Custom 0 Name
+  dconf:
+    key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name
+    value: "'Launch Terminal'"
+    state: present 
+
+- name: Gnome - Custom keybindings - Custom 0 Binding
+  dconf:
+    key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding
+    value: "'gnome-terminal'"
+    state: present 
+
+- name: Gnome - Custom keybindings - Custom 0 Command
+  dconf:
+    key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command
+    value: "'<Primary><Alt>t'"
+    state: present
+
+- name: Gnome - Enable Custom keybindings
+  dconf:
+    key: "/org/gnome/desktop/input-sources/sources"
+    value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+    state: present

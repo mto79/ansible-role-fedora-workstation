@@ -1,0 +1,21 @@
+# ansible_role_workstation/tasks/rhel8/software.yml
+# Author: MTO 
+# Description: Task for installing software on RedHat 8.
+# Requirements: RPMfusion Repository 
+#
+- name: Install fonts (RedHat 8)
+  yum:
+    name:
+      - fontconfig 
+      - dejavu-sans-fonts 
+      - dejavu-sans-mono-fonts 
+      - dejavu-serif-fonts 
+      - liberation-mono-fonts 
+      - liberation-sans-fonts 
+      - liberation-serif-fonts
+      #- adobe-source-han-sans-cn-fonts 
+      #- adobe-source-han-serif-cn-fonts 
+      #- google-noto-sans-thai-fonts 
+      #- google-noto-serif-thai-fonts 
+      #- un-core-batang-fonts
+    state: present  
