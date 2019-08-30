@@ -8,20 +8,16 @@
 - name: Display system, os, version and release 
   debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
  
-- include_tasks: "{{ ansible_os_family | lower }}/system.yml"
+- include_tasks: "{{ ansible_os_family | lower }}{{ ansible_distribution_version }}_system.yml"
  
-- include_tasks: "{{ ansible_os_family | lower }}/software.yml"
+- include_tasks: "{{ ansible_os_family | lower }}{{ ansible_distribution_version }}_software.yml"
 
-- include_tasks: "{{ ansible_os_family | lower }}/fonts.yml"
+- include_tasks: "{{ ansible_os_family | lower }}{{ ansible_distribution_version }}_fonts.yml"
 
-- include_tasks: "{{ ansible_os_family | lower }}/gnome.yml"
+- include_tasks: "{{ ansible_os_family | lower }}{{ ansible_distribution_version }}_gnome.yml"
 
 - name: Unconditionally reboot (RedHat 8)
   reboot:
-
-
-
-
 
 #- import_tasks: fedora/setup.yml
 #  when: ansible_distribution == 'Fedora' and ansible_distribution_version == '30'
