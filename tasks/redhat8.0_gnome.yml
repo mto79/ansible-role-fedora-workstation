@@ -34,23 +34,28 @@
     line: WaylandEnable=false
     state: present
 
-- name: Gnome - Enable Night Light
-  become: True
-  become_user: vagrant
-  dconf:
-    key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
-    value: "true"
-    state: present
-    
+- name: Gnome dconf fix (1) - Copy python3-psutil-5.4.3-4.fc28.x86_64.rpm
+  copy:
+    src: rpm/python3-psutil-5.4.3-4.fc28.x86_64.rpm
+    dest: /tmp/python3-psutil-5.4.3-4.fc28.x86_64.rpm
 
-- name: Set desktop clock format
+- name: Gnome dconf fix (2) - Install python3-psutil-5.4.3-4.fc28.x86_64.rpm
+  yum:
+    name: /tmp/python3-psutil-5.4.3-4.fc28.x86_64.rpm
+    state: present
+
+- name: Gnome configure with dconf module
+  dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    state: present
   become: True
   become_user: vagrant
-  dconf:
-    key: "/org/gnome/desktop/interface/clock-format"
-    value: "24"
-    state: present
-     
+  loop:
+    - key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
+      value: "true"
+    - key: "/org/gnome/desktop/interface/clock-format"
+      value: "24" 
 
 #- name: Gnome - Custom keybindings - Custom 0 Name
 #  dconf:

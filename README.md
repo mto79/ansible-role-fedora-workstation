@@ -28,6 +28,14 @@ Including an example of how to use your role (for instance, with variables passe
       roles:
          - { role: mto79.workstation }
 
+
+Issues
+-------
+Phyton-psutils for dconf ansible module.
+phyton3-psutils not available for Red Hat 8. Temp fix is to install python3-psutil-5.4.3-4.fc28.x86_64 and wait for Red Hat. 
+In Fedora 30 there is just the package.
+
+
 License
 -------
 
