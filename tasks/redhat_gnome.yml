@@ -1,50 +1,50 @@
-# ansible_role_workstation/tasks/rhel8/gnome.yml
+# ansible_role_workstation/tasks/redhat8.0_gnome.yml
 # Author: MTO 
-# Description: Task for installing software on RedHat 8.
-# Requirements: rhel8/software.yml has to run first 
+# Description: Task for installing minimal Gnome UI on RedHat 8.
+# Requirements: redhat8.0_software.yml has to run first 
 #
-- name: Install Gnome Minimal (RedHat 8)
+- name: GNOME - Install Gnome Minimal (RedHat 8)
   yum:
     name:
       - gnome-shell
     state: present    
   
-- name: Get default runlevel (RedHat 8)
+- name: GNOME - Get default runlevel (RedHat 8)
   command: systemctl get-default
   register: runlevel
   
-- name: Set graphical runlevel (RedHat 8)
+- name: GNOME - Set graphical runlevel (RedHat 8)
   command: systemctl set-default graphical.target
   when: runlevel.stdout != "graphical.target"
   
-- name: Is graphical currently active (RedHat 8)
+- name: GNOME - Is graphical currently active (RedHat 8)
   command: systemctl is-active graphical.target
   ignore_errors: true
   register: graphical
   
-- name: Switch to graphical runlevel (RedHat 8)
+- name: GNOME - Switch to graphical runlevel (RedHat 8)
   command: systemctl isolate graphical.target
   when: graphical.stdout != "active"
   ignore_errors: true   
       
-- name: Disable Wayland (RedHat 8)
+- name: GNOME - Disable Wayland (RedHat 8)
   lineinfile:
     path: /etc/gdm/custom.conf
     regexp: '^#WaylandEnable='
     line: WaylandEnable=false
     state: present
 
-- name: Gnome dconf fix (1) - Copy python3-psutil-5.4.3-4.fc28.x86_64.rpm (RedHat 8)
+- name: GNOME -  Gnome dconf fix (1) - Copy python3-psutil-5.4.3-4.fc28.x86_64.rpm (RedHat 8)
   copy:
     src: rpm/python3-psutil-5.4.3-4.fc28.x86_64.rpm
     dest: /tmp/python3-psutil-5.4.3-4.fc28.x86_64.rpm
 
-- name: Gnome dconf fix (2) - Install python3-psutil-5.4.3-4.fc28.x86_64.rpm (RedHat 8)
+- name: GNOME - Gnome dconf fix (2) - Install python3-psutil-5.4.3-4.fc28.x86_64.rpm (RedHat 8)
   yum:
     name: /tmp/python3-psutil-5.4.3-4.fc28.x86_64.rpm
     state: present
 
-- name: Gnome configure with dconf module (RedHat 8)
+- name: GNOME - Gnome configure with dconf module (RedHat 8)
   dconf:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
@@ -70,4 +70,3 @@
       value: "'gnome-terminal'"
     - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
       value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"  
-

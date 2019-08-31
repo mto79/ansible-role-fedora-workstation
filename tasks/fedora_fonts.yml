@@ -1,0 +1,6 @@
+---
+# ansible_role_workstation/tasks/fedora30_fonts.yml
+# Author: MTO 
+# Description: Task for installing software on RedHat 8.
+# Requirements: RPMfusion Repository 
+#

@@ -1,10 +1,10 @@
 ---
-# ansible_role_workstation/tasks/rhel8/software.yml
+# ansible_role_workstation/tasks/redhat8.0_software.yml
 # Author: MTO 
 # Description: Task for installing software on RedHat 8.
 # Requirements: EPEL Repository
 #
-- name: Install agent software (RedHat 8)
+- name: SOFTWARE - Install agent software (RedHat 8)
   yum:
     name:
       - spice-vdagent
@@ -13,7 +13,7 @@
       - spice-gtk3 
     state: present 
 
-- name: Install default software (RedHat 8)
+- name: SOFTWARE - Install default software (RedHat 8)
   yum:
     name:
       - gnome-terminal

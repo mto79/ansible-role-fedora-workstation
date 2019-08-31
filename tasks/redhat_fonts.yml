@@ -1,9 +1,10 @@
-# ansible_role_workstation/tasks/rhel8/software.yml
+---
+# ansible_role_workstation/tasks/redhat8.0_fonts.yml
 # Author: MTO 
 # Description: Task for installing software on RedHat 8.
 # Requirements: RPMfusion Repository 
 #
-- name: Install fonts (RedHat 8)
+- name: Fonts - Install fonts (RedHat 8)
   yum:
     name:
       - fontconfig 

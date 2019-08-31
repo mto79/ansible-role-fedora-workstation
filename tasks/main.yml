@@ -3,22 +3,20 @@
 # Author: MTO 
 # Description: Main task for installing default GUI and programs on RedHat 8 or Centos 8.
 #
-
-# Display os and distribution
-- name: Display system, os, version and release 
+- name: MAIN - Display system, os, version and release 
   debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
  
-- include_tasks: "{{ ansible_os_family | lower }}{{ ansible_distribution_version }}_system.yml"
+- include_tasks: "{{ ansible_os_family | lower }}_system.yml"
  
-- include_tasks: "{{ ansible_os_family | lower }}{{ ansible_distribution_version }}_software.yml"
+- include_tasks: "{{ ansible_os_family | lower }}_software.yml"
 
-- include_tasks: "{{ ansible_os_family | lower }}{{ ansible_distribution_version }}_fonts.yml"
+#- include_tasks: "{{ ansible_os_family | lower }}_user.yml"
 
-- include_tasks: "{{ ansible_os_family | lower }}{{ ansible_distribution_version }}_gnome.yml"
+- include_tasks: "{{ ansible_os_family | lower }}_fonts.yml"
 
-- name: Unconditionally reboot
+- include_tasks: "{{ ansible_os_family | lower }}_gnome.yml"
+
+- name: MAIN - Unconditionally reboot
   reboot:
 
-#- import_tasks: fedora/setup.yml
-#  when: ansible_distribution == 'Fedora' and ansible_distribution_version == '30'
   
