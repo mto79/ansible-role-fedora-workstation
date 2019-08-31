@@ -59,9 +59,9 @@
     - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
       value: "'Launch Terminal'"   
     - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding"
-      value: "'gnome-terminal'" 
+      value: "'<Primary><Alt>t'" 
     - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
-      value: "'<Primary><Alt>t'"   
+      value: "'gnome-terminal'"
     - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
       value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"  
 
