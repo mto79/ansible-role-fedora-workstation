@@ -5,12 +5,12 @@
 #
 - name: MAIN - Display system, os, version and release 
   debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
- 
+  tags:
+    - display
+
 - include_tasks: "{{ ansible_os_family | lower }}_system.yml"
  
 - include_tasks: "{{ ansible_os_family | lower }}_software.yml"
-
-#- include_tasks: "{{ ansible_os_family | lower }}_user.yml"
 
 - include_tasks: "{{ ansible_os_family | lower }}_fonts.yml"
 
