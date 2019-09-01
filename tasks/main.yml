@@ -4,7 +4,7 @@
 # Description: Main task for installing default GUI and programs on RedHat 8 or Centos 8.
 #
 - name: MAIN - Display system, os, version and release 
-  debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
+  debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }} | {{ users }}"
   tags:
     - display
 
