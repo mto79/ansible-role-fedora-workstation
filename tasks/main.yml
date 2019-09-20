@@ -9,7 +9,7 @@
 - name: Display var
   debug: msg="{{ item.name }}"
   loop:
-    - "{{ var1 | to_json  }}"
+    - "{{ var1 | to_nice_yaml }}"
  
 
 
