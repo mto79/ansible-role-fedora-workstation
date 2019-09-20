@@ -9,9 +9,10 @@
     - display
 
 - name: Display users
-  debug: msg="{{ item.name }}"
-  loop:
-    - "{{ users }}"
+  debug: msg="users test"
+  #debug: msg="{{ item.name }}"
+  #loop:
+  #  - "{{ users }}"
   tags:
     - display2
 
