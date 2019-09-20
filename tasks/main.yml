@@ -9,22 +9,22 @@
     - display
 
 - name: Display users
-  debug: msg="{{ item.username }}"
+  debug: msg="{{ item.name }}"
   loop:
     - "{{ users }}"
   tags:
-    - display
+    - display2
 
 
-- include_tasks: "{{ ansible_os_family | lower }}_system.yml"
+#- include_tasks: "{{ ansible_os_family | lower }}_system.yml"
  
-- include_tasks: "{{ ansible_os_family | lower }}_software.yml"
+#- include_tasks: "{{ ansible_os_family | lower }}_software.yml"
 
-- include_tasks: "{{ ansible_os_family | lower }}_fonts.yml"
+#- include_tasks: "{{ ansible_os_family | lower }}_fonts.yml"
 
-- include_tasks: "{{ ansible_os_family | lower }}_gnome.yml"
+#- include_tasks: "{{ ansible_os_family | lower }}_gnome.yml"
 
-- name: MAIN - Unconditionally reboot
-  reboot:
+#- name: MAIN - Unconditionally reboot
+#  reboot:
 
   
