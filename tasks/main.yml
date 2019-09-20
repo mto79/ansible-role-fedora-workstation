@@ -8,7 +8,7 @@
 
 
 - name: Display var
-  debug: msg="Vars are {{ var1 | to_yaml  }}"
+  debug: msg="Vars are {{ var1 | to_json  }}"
  
 
 
