@@ -8,11 +8,8 @@
   tags:
     - display
 
-- name: Display users
-  debug: msg="users test"
-  #debug: msg="{{ item.name }}"
-  #loop:
-  #  - "{{ users }}"
+- name: Display var
+  debug: msg="Vars are; {{ variable_1 }} {{ var1 }}"
   tags:
     - display2
 
