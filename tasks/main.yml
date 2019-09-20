@@ -6,12 +6,8 @@
 - name: MAIN - Display system, os, version and release 
   debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
 
-
-- name: Display users
-  debug:
-    msg: "{{ item.name }}"
-  loop:
-    - "{{ vars_users }}"
+- debug: "msg: {{ item.name }}"
+  with_items: "{{ vars_users }}"
 
 
 #- include_tasks: "{{ ansible_os_family | lower }}_system.yml"
