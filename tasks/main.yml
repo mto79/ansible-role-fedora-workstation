@@ -9,7 +9,7 @@
     - display
 
 - name: Display var
-  debug: msg="Vars are {{ variable_1 }} {{ var1 }}"
+  debug: msg="Vars are {{ var1 }}"
   tags:
     - display2
 
