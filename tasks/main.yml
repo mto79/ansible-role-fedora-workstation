@@ -11,7 +11,7 @@
   debug:
     msg: "{{ item.name }}"
   loop:
-    - {{ vars_users }}
+    - "{{ vars_users }}"
 
 
 #- include_tasks: "{{ ansible_os_family | lower }}_system.yml"
