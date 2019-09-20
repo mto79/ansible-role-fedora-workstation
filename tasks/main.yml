@@ -6,7 +6,7 @@
 - name: MAIN - Display system, os, version and release 
   debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
 
-- debug: "msg: {{ vars_users }}"
+- debug: msg="{{ vars_users }}"
  
 
 
