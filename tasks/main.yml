@@ -6,9 +6,10 @@
 - name: MAIN - Display system, os, version and release 
   debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
 
-
 - name: Display var
-  debug: msg="Vars are {{ var1 | to_json  }}"
+  debug: msg="{{ item.name }}"
+  loop:
+    - "{{ var1 | to_json  }}"
  
 
 
