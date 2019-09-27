@@ -50,7 +50,7 @@
     state: directory
     owner: root
     group: root
-    mode: 0775
+    mode: '0775'
   
 - name: GNOME - GDM disable user list (2) -Template a file to /etc/dconf/db/gdm.d/01-settings
   template:
