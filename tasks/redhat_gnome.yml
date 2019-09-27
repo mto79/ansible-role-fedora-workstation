@@ -52,7 +52,7 @@
     group: root
     mode: '0755'
   
-- name: GNOME - GDM disable user list (2) -Template a file to /etc/dconf/db/gdm.d/01-settings
+- name: GNOME - GDM disable user list (2) - Template a file to /etc/dconf/db/gdm.d/01-settings
   template:
     src: etc/dconf/db/gdm.d/01-settings.j2
     dest: /etc/dconf/db/gdm.d/01-settings
@@ -60,10 +60,13 @@
     group: root
     mode: '0644'
 
-- name: GNOME - GDM disable user list (3) -Template a file to /etc/dconf/profile/gdm
+- name: GNOME - GDM disable user list (3) - Template a file to /etc/dconf/profile/gdm
   template:
     src: etc/dconf/profile/gdm.j2
     dest: /etc/dconf/profile/gdm
     owner: root
     group: root
     mode: '0644'
+
+- name:  GNOME - GDM disable user list (4) - Update DCONF 
+  command: dconf update
