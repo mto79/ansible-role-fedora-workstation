@@ -51,22 +51,5 @@
     state: present
   become: True
   become_user: vagrant
-  loop:
-    - key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
-      value: "true"
-    - key: "/org/gnome/desktop/interface/clock-format"
-      value: "24"
-    - key: "/org/gnome/desktop/interface/clock-show-date"
-      value: "true" 
-    - key: "/org/gnome/desktop/interface/clock-show-seconds"
-      value: "true"  
-    - key: "/org/gnome/desktop/calendar/show-weekdate"
-      value: "true"
-    - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
-      value: "'Launch Terminal'"   
-    - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding"
-      value: "'<Primary><Alt>t'" 
-    - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
-      value: "'gnome-terminal'"
-    - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
-      value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"  
+  loop: "{{ workstation_gnome_settings }}"
+   

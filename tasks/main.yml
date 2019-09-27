@@ -1,16 +1,18 @@
 ---
 # ansible_role_workstation/tasks/main.yml
 # Author: MTO 
-# Description: Main task for installing default GUI and programs on RedHat 8 or Centos 8.
+# Description: Main task for installing default GUI and programs on Fedora, RedHat 8.
 #
 - name: MAIN - Display system, os, version and release 
   debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
 
-- name: Display var1
-  debug: msg="Vars are {{ var1 | to_nice_yaml  }}"
+- name: MAIN - Display workstation_user
+  debug: msg="User is{{ workstation_user }}"
  
 #- include_tasks: "{{ ansible_os_family | lower }}_system.yml"
  
+#- include_tasks: "{{ ansible_os_family | lower }}_user.yml"
+
 #- include_tasks: "{{ ansible_os_family | lower }}_software.yml"
 
 #- include_tasks: "{{ ansible_os_family | lower }}_fonts.yml"
