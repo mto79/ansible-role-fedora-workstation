@@ -18,9 +18,7 @@ workstation_gnome_settings:
   - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command" , value: "'gnome-terminal'" }  
   - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings" , value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"}   
   # Login Screen    
-  - { key: "/org/gnome/login-screen/disable-user-list", value: "true" }   
+  #- { key: "/org/gnome/login-screen/disable-user-list", value: "true" }   
 
- 
-
-
-
+workstation_gdm_settings:
+  disable_user_list: true
