@@ -43,3 +43,27 @@
   yum:
     name: /tmp/python3-psutil-5.4.3-4.fc28.x86_64.rpm
     state: present
+
+- name: GNOME - GDM disable user list (1) - Create dir /etc/dconf/db/gdm.d
+  file:
+    path: /etc/dconf/db/gdm.d
+    state: directory
+    owner: root
+    group: root
+    mode: 0775
+  
+- name: GNOME - GDM disable user list (2) -Template a file to /etc/dconf/db/gdm.d/01-settings
+  template:
+    src: etc/dconf/db/gdm.d/01-settings.j2
+    dest: /etc/dconf/db/gdm.d/01-settings
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: GNOME - GDM disable user list (3) -Template a file to /etc/dconf/profile/gdm
+  template:
+    src: etc/dconf/profile/gdm.j2
+    dest: /etc/dconf/profile/gdm
+    owner: root
+    group: root
+    mode: '0644'
