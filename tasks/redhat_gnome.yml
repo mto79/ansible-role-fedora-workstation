@@ -50,6 +50,6 @@
     value: "{{ item.value }}"
     state: present
   become: True
-  become_user: "{{ usr.uname }}"
+  become_user: mto
   loop: "{{ workstation_gnome_settings }}"
    
