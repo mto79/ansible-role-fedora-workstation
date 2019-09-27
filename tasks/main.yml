@@ -7,7 +7,7 @@
   debug: msg="SYSTEM {{ inventory_hostname }} | OS {{ ansible_distribution }} | VERSION {{ ansible_distribution_version }} | RELEASE {{ ansible_distribution_release }}"
 
 - name: MAIN - Display workstation_user
-  debug: msg="User is{{ workstation_user }}"
+  debug: msg="{{ var1 }}"
  
 #- include_tasks: "{{ ansible_os_family | lower }}_system.yml"
  
