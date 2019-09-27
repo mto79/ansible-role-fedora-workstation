@@ -4,7 +4,7 @@
 # Description: Task for installing software on RedHat 8.
 # Requirements: RPMfusion Repository 
 #
-- name: Fonts - Install fonts (RedHat 8)
+- name: FONTS - Install fonts (RedHat 8)
   yum:
     name:
       - fontconfig 
