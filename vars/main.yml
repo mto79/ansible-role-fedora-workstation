@@ -20,5 +20,3 @@ workstation_gnome_settings:
   # Login Screen    
   #- { key: "/org/gnome/login-screen/disable-user-list", value: "true" }   
 
-workstation_gdm_settings:
-  disable_user_list: true
