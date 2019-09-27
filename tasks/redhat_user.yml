@@ -5,20 +5,18 @@
 # 
 - name: USER - Create account
   user:
-    name: "{{ item.name }}"
-    password: "{{ item.pass | password_hash('sha512') }}"
+    name: "{{ usr.uname }}"
+    password: "{{ usr.upass | password_hash('sha512') }}"
     groups: wheel
     append: yes
     shell: /bin/bash
     update_password: on_create
     state: present
-  loop: "{{ vars_users }}"
   no_log: true
 
 - name: USER - Set Private key for account
   authorized_key:
-    user: "{{ item.name }}"
-    key: "{{ item.key }}"
+    user: "{{ usr.uname }}"
+    key: "{{ usr.ukey}}"
     exclusive: yes
-  loop: "{{ vars_users }}"
   no_log: true  
