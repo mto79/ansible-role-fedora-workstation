@@ -43,13 +43,3 @@
   yum:
     name: /tmp/python3-psutil-5.4.3-4.fc28.x86_64.rpm
     state: present
-
-- name: GNOME - Gnome configure with dconf module (RedHat 8)
-  dconf:
-    key: "{{ item.key }}"
-    value: "{{ item.value }}"
-    state: present
-  become: True
-  become_user: mto
-  loop: "{{ workstation_gnome_settings }}"
-   

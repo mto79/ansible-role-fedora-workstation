@@ -20,3 +20,12 @@
     key: "{{ usr.ukey}}"
     exclusive: yes
   no_log: true  
+
+- name: USER - Gnome configure with dconf module (RedHat 8)
+  dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    state: present
+  become: True
+  become_user: "{{ usr.uname }}"
+  loop: "{{ workstation_gnome_settings }}"
