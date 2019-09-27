@@ -24,9 +24,15 @@ Example Playbook
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
+Give a variable usr to the mto79.workstation in the format
+  workstation_user:
+    uname: 
+    upass: 
+    ukey: 
+
     - hosts: servers
       roles:
-         - { role: mto79.workstation }
+         - { role: mto79.workstation, usr: "{{ workstation_user }}" }
 
 
 Issues
