@@ -29,7 +29,7 @@
   become: yes
   yum:
     name: code
-  state: present
+    state: present
 
 # Software install Chrome
 - name: SOFTWARE - Install Chrome repo (RedHat 8)
@@ -45,7 +45,7 @@
   become: yes
   yum:
     name: google-chrome-stable
-  state: present
+    state: present
 
 # Software install clients Spotify, Mattermost, Nextcloud, Postman, OpenOffice with flatpak package manager
 - name: SOFTWARE - Install flatpack software (RedHat 8)
