@@ -19,6 +19,8 @@ workstation_software_default:
   - python3-psutil
   - sos
   - git
+  - ftp
+  - telnet
   - vim
   - traceroute
   - unzip
