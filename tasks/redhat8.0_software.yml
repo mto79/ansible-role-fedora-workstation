@@ -1,0 +1,86 @@
+---
+# ansible_role_workstation/tasks/redhat8.0_software.yml
+# Author: MTO 
+# Description: Task for installing software on RedHat 8.
+# Requirements: EPEL Repository
+#
+- name: SOFTWARE - Install agent software (RedHat 8)
+  yum:
+    name: "{{ workstation_software_agent }}"
+    state: present 
+
+- name: SOFTWARE - Install default software (RedHat 8)
+  yum:
+    name: "{{ workstation_software_default }}"
+    state: present   
+
+# Software install VSCode
+- name: SOFTWARE - Install VS Code repo (RedHat 8)
+  become: yes
+  yum_repository:
+    name: code
+    description: Visual Studio Code repo
+    file: vscode
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+    gpgcheck: yes
+
+- name: SOFTWARE - Install VS Code (RedHat 8)
+  become: yes
+  yum:
+    name: code
+  state: present
+
+# Software install Chrome
+- name: SOFTWARE - Install Chrome repo (RedHat 8)
+  become: yes
+  yum_repository:
+    name: google-chrome
+    description: Google Chrome repo
+    baseurl: http://dl.google.com/linux/chrome/rpm/stable/x86_64
+    gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+    gpgcheck: yes
+
+- name: SOFTWARE - Install Chrome (RedHat 8)
+  become: yes
+  yum:
+    name: google-chrome-stable
+  state: present
+
+# Software install clients Spotify, Mattermost, Nextcloud, Postman, OpenOffice with flatpak package manager
+- name: SOFTWARE - Install flatpack software (RedHat 8)
+  yum:
+    name:
+      - flatpak
+    state: present 
+
+- name: SOFTWARE - Install flathub flatpak repository remote to the user installation (RedHat 8)
+  flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+  
+- name: SOFTWARE - Install Spotify with flatpak (RedHat 8)
+  flatpak:
+    name: com.spotify.Client
+    state: present
+
+- name: FLATPAK - Install Mattermost with flatpak (RedHat 8)
+  flatpak:
+    name: com.mattermost.Desktop
+    state: present
+
+- name: FLATPAK - Install Nextcloud with flatpak (RedHat 8)
+  flatpak:
+    name: org.nextcloud.Nextcloud
+    state: present
+
+- name: FLATPAK - Install Postman with flatpak (RedHat 8)
+  flatpak:
+    name: com.getpostman.Postman
+    state: present
+
+- name: FLATPAK - Install OpenOffice with flatpak (RedHat 8)
+  flatpak:
+    name: org.libreoffice.LibreOffice//fresh
+    state: present

@@ -3,6 +3,49 @@
 # Author: MTO 
 # Description: Vars for configuring workstation role.
 # 
+workstation_software_agent:
+  - spice-vdagent
+  - spice-server
+  - spice-glib
+  - spice-gtk3
+
+workstation_software_default:
+  - gnome-terminal
+  - bash-completion
+  - net-tools
+  - bind-utils
+  - dnf-utils
+  - dconf-editor
+  - python3-psutil
+  - sos
+  - git
+  - vim
+  - traceroute
+  - unzip
+  - mlocate
+  - eog
+  - tree
+  - evince
+  - screen
+  - mc
+  - which
+  - firefox
+  - thunderbird
+  - keepassxc
+
+#workstation_software_vsc_extensions:
+#  - streetsidesoftware.code-spell-checker
+#  - wholroyd.jinja
+#  - ms-python.python
+  
+#workstation_software_vsc_settings: {
+#  "editor.rulers": [80, 100, 120],
+#  "editor.renderWhitespace": true,
+#  "files.associations": {
+#    "Vagrantfile": "ruby"
+#   }
+#}
+
 workstation_gnome_settings:
   # Nightlight
   - { key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled" , value: "true" }
@@ -12,11 +55,18 @@ workstation_gnome_settings:
   - { key: "/org/gnome/desktop/interface/clock-show-seconds" , value: "true" }
   # Calender
   - { key: "/org/gnome/desktop/calendar/show-weekdate" , value: "true" } 
-  # Shortcuts
+  # Shortcut Gnome Terminal
   - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name" , value: "'Launch Terminal'" } 
   - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding" , value: "'<Primary><Alt>t'" }  
   - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command" , value: "'gnome-terminal'" }  
-  - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings" , value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"}   
+  # Shortcut Code 
+  - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name" , value: "'Launch Visual Studio Code'" } 
+  - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding" , value: "'<Primary><Alt>c'" }  
+  - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command" , value: "'/usr/bin/code'" }  
+  # Shortcut Midnight Commander
+  - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/name" , value: "'Launch Midnight Commander'" } 
+  - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/binding" , value: "'<Primary><Alt>m'" }  
+  - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/command" , value: "'/usr/bin/mc'" }  
+  - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings" , value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/'],['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/'],['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']"}   
   # Login Screen    
   #- { key: "/org/gnome/login-screen/disable-user-list", value: "true" }   
-

@@ -29,3 +29,17 @@
   become: True
   become_user: "{{ usr.uname }}"
   loop: "{{ workstation_gnome_settings }}"
+
+#- name: USER - VSCode install extensions
+#  become: yes
+#  become_user: "{{ usr.uname }}"
+#  visual_studio_code_install_extension:
+#    executable: '{{ visual_studio_code_exe }}'
+#    name: '{{ item.1 }}'
+#  with_subelements:
+#    - workstation_software_vsc_extensions
+#- skip_missing: yes
+
+# - name: USER - Set ThunderBird Data
+
+# - name USER - Set FireFox Data
