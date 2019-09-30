@@ -4,12 +4,12 @@
 # Description: Task for setting system on RedHat 8.
 # Requirements: EPEL Repository
 #
-#- name: SYSTEM - Enlarge logical volume
-#  lvol:
-#    vg: systemvg
-#    lv: varlv
-#    size: 15g
-#    resizefs: true 
+- name: SYSTEM - Enlarge logical volume
+  lvol:
+    vg: systemvg
+    lv: varlv
+    size: 15g
+    resizefs: true 
 
 - name: SYSTEM - Upgrade all packages (RedHat 8)
   yum:
