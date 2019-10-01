@@ -82,5 +82,5 @@
 
 - name: FLATPAK - Install OpenOffice with flatpak (RedHat 8)
   flatpak:
-    name: org.libreoffice.LibreOffice//fresh
+    name: org.libreoffice.LibreOffice
     state: present
