@@ -69,6 +69,6 @@ workstation_gnome_settings:
   - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/name" , value: "'Launch Midnight Commander'" } 
   - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/binding" , value: "'<Primary><Alt>m'" }  
   - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/command" , value: "'/usr/bin/mc'" }  
-  - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings" , value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/'],['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/'],['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']"}   
+  - { key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings" , value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']"}   
   # Login Screen    
   #- { key: "/org/gnome/login-screen/disable-user-list", value: "true" }   
