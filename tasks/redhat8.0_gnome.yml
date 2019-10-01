@@ -34,16 +34,6 @@
     line: WaylandEnable=false
     state: present
 
-- name: GNOME -  Gnome dconf fix (1) - Copy python3-psutil-5.4.3-4.fc28.x86_64.rpm (RedHat 8)
-  copy:
-    src: rpm/python3-psutil-5.4.3-4.fc28.x86_64.rpm
-    dest: /tmp/python3-psutil-5.4.3-4.fc28.x86_64.rpm
-
-- name: GNOME - Gnome dconf fix (2) - Install python3-psutil-5.4.3-4.fc28.x86_64.rpm (RedHat 8)
-  yum:
-    name: /tmp/python3-psutil-5.4.3-4.fc28.x86_64.rpm
-    state: present
-
 - name: GNOME - GDM disable user list (1) - Create dir /etc/dconf/db/gdm.d
   file:
     path: /etc/dconf/db/gdm.d

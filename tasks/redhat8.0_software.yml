@@ -4,6 +4,16 @@
 # Description: Task for installing software on RedHat 8.
 # Requirements: EPEL Repository
 #
+- name: SOFTWARE - Python3-psutil fix (1) - Copy python3-psutil-5.4.3-4.fc28.x86_64.rpm (RedHat 8)
+  copy:
+    src: rpm/python3-psutil-5.4.3-4.fc28.x86_64.rpm
+    dest: /tmp/python3-psutil-5.4.3-4.fc28.x86_64.rpm
+
+- name: SOFTWARE - Python3-psutil fix (2) - Install python3-psutil-5.4.3-4.fc28.x86_64.rpm (RedHat 8)
+  yum:
+    name: /tmp/python3-psutil-5.4.3-4.fc28.x86_64.rpm
+    state: present
+
 - name: SOFTWARE - Install agent software (RedHat 8)
   yum:
     name: "{{ workstation_software_agent }}"
