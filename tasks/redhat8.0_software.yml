@@ -94,3 +94,8 @@
   flatpak:
     name: org.libreoffice.LibreOffice
     state: present
+
+- name: FLATPAK - Install Remmina with flatpak (RedHat 8)
+  flatpak:
+    name: org.remmina.Remmina
+    state: present
